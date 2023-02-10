@@ -95,7 +95,7 @@ function add_message(): bool
 	}
 	if(empty($image['name'])){
 		$res = $pdo->prepare("INSERT INTO messages (name, email, message,image) VALUES (?,?,?,?)");
-		if($res->execute([$_SESSION['user']['name'], $_SESSION['user']['email'], $message, $image])){
+		if($res->execute([$_SESSION['user']['name'], $_SESSION['user']['email'], $message, $image['name']])){
 			$_SESSION['success'] = 'Отзыв добавлено!';
 			return true;
 		}else{
